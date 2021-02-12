@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
 	public function contact() {
-                return view('welcome');
+                return view('welcome'); // view the contact form
 	}
 	public function contactPost(Request $request){
 
@@ -17,6 +17,8 @@ class ContactController extends Controller
                                 'email'     => 'required|email',
                                 'message'   => 'required'
                         ]);
+
+                        //redirect()->back()->withErrors($validator)->withInput()
 
                 $request = $request->all();
                 

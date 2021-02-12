@@ -19,6 +19,7 @@
                 name="firstname"
                 class="form-control"
                 placeholder="Enter First Name"
+                v-model="firstname"
               />
             </div>
             <div class="form-group">
@@ -28,6 +29,7 @@
                 name="lastname"
                 class="form-control"
                 placeholder="Enter Last  Name"
+                v-model="lastname"
               />
             </div>
             <div class="form-group">
@@ -37,6 +39,7 @@
                 name="email"
                 class="form-control"
                 placeholder="Enter Email"
+                v-model="email"
               />
             </div>
             <div class="form-group">
@@ -46,13 +49,15 @@
                 name="company"
                 class="form-control"
                 placeholder="Enter Company Name"
+                v-model="company"
               />
             </div>
 
             <div class="form-group">
               <label>Industry</label><br />
-              <select name="industry">
-                <option value="Advertising" selected>Advertising</option>
+              <select name="industry" style="color: black;" v-model="industry">
+                <option value="">--- Please Select: ---</option>
+                <option value="Advertising">Advertising</option>
                 <option value="Corporate Strategy">Corporate Strategy</option>
                 <option value="Motivational Speaker">
                   Motivational Speaker
@@ -69,6 +74,7 @@
                 name="message"
                 class="form-control"
                 placeholder="What's on your mind?"
+                v-model="formMessage"
               ></textarea>
             </div>
             <div class="form-group">
@@ -86,9 +92,59 @@
             </ul>
           </div>
           @endif
+
+          <p>
+          Vue.js data binding
+              <ul>
+                  <li>
+                    First Name: @{{ firstname }}
+                  </li>
+                  <li>
+                    Last Name: @{{ lastname }}
+                  </li>
+                  <li>
+                    Email: @{{ email }}
+                  </li>
+                  <li>
+                    Company: @{{ company }}
+                  </li>
+                  <li>
+                    Industry: @{{ industry }}
+                  </li>
+                  <li>
+                    Message: @{{ formMessage }}
+                  </li>
+              </ul>
+          </p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- VUE.js section -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+<script>
+    let firstname   = '{{ old('firstname') }}';
+    let lastname    = '{{ old('lastname') }}';
+    let email       = '{{ old('email') }}';
+    let company     = '{{ old('company') }}';
+    let industry    = '{{ old('industry') }}';
+    let formMessage = '{{ old('formMessage') }}';
+
+    var app = new Vue({
+    el: '#vue-app',
+    data: {
+        message: 'Hello from Vue!',
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        company: company,
+        industry: industry,
+        formMessage: formMessage,
+    }
+    })
+</script>
+<!-- VUE -->
 @stop
