@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +11,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\ContactController@contact')->name('contact');
+Route::get('/contact', 'App\Http\Controllers\ContactController@contact')->name('contact');
+Route::post('/', 'App\Http\Controllers\ContactController@contactPost')->name('contactPost');
