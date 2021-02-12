@@ -41,6 +41,9 @@ color: #FFF;
     	height: auto;
     }
 }
+.req {
+    color: #f00;
+}
 
 
 

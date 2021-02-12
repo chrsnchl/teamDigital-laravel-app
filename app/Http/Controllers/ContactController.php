@@ -32,7 +32,8 @@ class ContactController extends Controller
 
 //        return back()->with('success', 'Thanks for contacting us, We will get back to you soon!');
 
-	return view('success');
+        $request = $request->all();
+	return view('success', compact('request'));
 
     }
 }

@@ -7,8 +7,24 @@
                         <div class="panel panel-danger">
                             <div class="panel-body">
 				<img src="logo-td-invert-v2.png">
-				<br>
-				<p> Success! Thank you for submitting the form. </p>
+				<br><br>
+				<p> Success! Thank you for submitting this data: </p>
+                    @if (count($request) >= 1)
+                        <div class="info">
+                            <ul style="list-style: none;">
+                                @foreach ($request as $key => $item)
+                                    @if ($key !== '_token')
+                                        <li>
+                                        <span style="width: 80px; display: inline-block; font-weight: bold;">
+                                            {{$key}}
+                                        </span>
+                                            :&nbsp;&nbsp; {{ $item }}
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                             </div>
                         </div>
                     </div>
